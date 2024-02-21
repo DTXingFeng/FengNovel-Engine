@@ -3,6 +3,7 @@
     {
       "sceneId": 1,
       "text": "这是一个场景的文本描述。",
+      "name": "刑风",
       "audio": {
         "voiceActor": "Actor1",
         "audioFile": ""
@@ -16,6 +17,21 @@
     {
       "sceneId": 2,
       "text": "另一个场景的文本描述。",
+      "name": "刑风",
+      "audio": {
+        "voiceActor": "Actor2",
+        "audioFile": ""
+      },
+      "visuals": {
+        "backgroundImage": "",
+        "characterImage": "",
+        "animation": ""
+      }
+    },
+    {
+      "sceneId": 3,
+      "text": "这是没有名字的场景",
+      "name": "",
       "audio": {
         "voiceActor": "Actor2",
         "audioFile": ""

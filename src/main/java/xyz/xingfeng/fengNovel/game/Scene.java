@@ -10,10 +10,15 @@ public class Scene {
 
     private int sceneId;
     private String text;
+    /**
+     * 名字,默认为空，空则不显示
+     */
+    private String name = null;
 
     public Scene(JSONObject scene) {
         this.sceneId = scene.getInt("sceneId");
         this.text = scene.getString("text");
+        this.name = scene.getString("name");
     }
 
     public Scene(){
@@ -37,15 +42,12 @@ public class Scene {
         return sceneId;
     }
 
-    public void setSceneId(int sceneId) {
-        this.sceneId = sceneId;
-    }
 
     public String getText() {
         return text;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public String getName() {
+        return name;
     }
 }
