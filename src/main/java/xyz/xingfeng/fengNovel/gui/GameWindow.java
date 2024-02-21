@@ -9,11 +9,13 @@ import java.awt.event.ComponentListener;
 
 public class GameWindow extends JFrame {
 
+    private final XTextComponent xTextComponent;
     private XButton xButton;
 
     public GameWindow(WindowSettings settings){
         // 获取屏幕宽高
         Dimension scrSize = Toolkit.getDefaultToolkit().getScreenSize();
+        setPreferredSize(new Dimension(settings.getWidth(), settings.getHeight()));
         // 设置窗口位置大小
         setBounds(scrSize.width / 2 - settings.getWidth() / 2, scrSize.height / 2 - settings.getHeight() / 2, settings.getWidth(), settings.getHeight());
         //设置标题
@@ -26,7 +28,7 @@ public class GameWindow extends JFrame {
         Container cn = this.getContentPane();
         // 取消布局
         cn.setLayout(null);
-
+        //实际游戏页面始终保持在16：9
         ImageIcon imageIcon = new ImageIcon("E:\\DTlogo\\32x32.png");
         Image image = imageIcon.getImage();
         imageIcon = new ImageIcon(image.getScaledInstance(100,100,Image.SCALE_SMOOTH));
@@ -41,8 +43,11 @@ public class GameWindow extends JFrame {
 
         xButton = new XButton(this);
         xButton.setLocation(0,100);
-        cn.add(xButton);
+//        cn.add(xButton);
         addComponentListener(new Component());
+        xTextComponent = new XTextComponent(this);
+        add(xTextComponent);
+        xTextComponent.repaint();
     }
     class Component implements ComponentListener {
 
@@ -50,6 +55,7 @@ public class GameWindow extends JFrame {
         public void componentResized(ComponentEvent e) {
             xButton.setNewWidth(e.getComponent());
 //            xButton.repaint();
+            xTextComponent.dynamicSize(e.getComponent());
         }
 
         @Override
