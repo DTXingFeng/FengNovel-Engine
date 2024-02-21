@@ -13,6 +13,9 @@
     "y": 0
   },
   "soundEnabled": true,
-  "zoomEnabled": true
+  "zoomEnabled": true,
+  "Game": {
+    "path": "assets/scene/Scene.json"
+  }
 }
 ```

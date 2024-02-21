@@ -1,0 +1,30 @@
+{
+  "scenes": [
+    {
+      "sceneId": 1,
+      "text": "这是一个场景的文本描述。",
+      "audio": {
+        "voiceActor": "Actor1",
+        "audioFile": ""
+      },
+      "visuals": {
+        "backgroundImage": "",
+        "characterImage": "",
+        "animation": ""
+      }
+    },
+    {
+      "sceneId": 2,
+      "text": "另一个场景的文本描述。",
+      "audio": {
+        "voiceActor": "Actor2",
+        "audioFile": ""
+      },
+      "visuals": {
+        "backgroundImage": "",
+        "characterImage": "",
+        "animation": ""
+      }
+    }
+  ]
+}
