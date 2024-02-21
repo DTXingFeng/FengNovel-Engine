@@ -1,4 +1,4 @@
-package xyz.xingfeng.fengNovel.exception;
+package xyz.xingfeng.fengNovel.entities;
 
 /**
  * 表示游戏中的决策树。
