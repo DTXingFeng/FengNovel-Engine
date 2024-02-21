@@ -32,6 +32,22 @@
 			<artifactId>json</artifactId>
 			<version>20240205</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.lwjgl/lwjgl -->
+		<dependency>
+			<groupId>org.lwjgl</groupId>
+			<artifactId>lwjgl</artifactId>
+			<version>3.3.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.lwjgl</groupId>
+			<artifactId>lwjgl-vulkan</artifactId>
+			<version>3.3.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.lwjgl</groupId>
+			<artifactId>lwjgl-glfw</artifactId>
+			<version>3.3.3</version>
+		</dependency>
 	</dependencies>
 
 	<build>

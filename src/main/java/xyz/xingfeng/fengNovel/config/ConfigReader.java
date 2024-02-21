@@ -29,4 +29,8 @@ public class ConfigReader {
         return config.getBoolean(key);
     }
 
+    public JSONObject getJson(String key){
+        return config.getJSONObject(key);
+    }
+
 }

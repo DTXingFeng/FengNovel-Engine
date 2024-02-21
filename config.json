@@ -1,0 +1,11 @@
+{
+  "Window": {
+    "Title": "Title",
+    "Width": 1600,
+    "Height": 400,
+    "x": 0,
+    "y": 0
+  },
+  "soundEnabled": true,
+  "zoomEnabled": true
+}
