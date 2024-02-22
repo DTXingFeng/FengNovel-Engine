@@ -39,8 +39,12 @@ public class XTextComponent extends JComponent {
         //占比高度最小10%最大30%
         setBounds(0, (int) (c.getHeight()*0.7),c.getWidth(), (int) (c.getHeight()*0.3));
         //内边距10%
-        textComp.setBounds((int) (getWidth()*0.05), (int) (getY()*0.1), (int) (getWidth()*0.9), (int) (getHeight()*0.8));
+        textComp.setBounds((int) (getWidth()*0.05), (int) (getHeight()*0.1), (int) (getWidth()*0.9), (int) (getHeight()*0.8));
 
+    }
+
+    public void setText(String text){
+        textComp.setText(text);
     }
 
     @Override
