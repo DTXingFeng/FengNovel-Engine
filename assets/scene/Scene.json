@@ -9,7 +9,7 @@
         "audioFile": ""
       },
       "visuals": {
-        "backgroundImage": "",
+        "backgroundImage": "assets/background/01.jpg",
         "characterImage": "",
         "animation": ""
       }

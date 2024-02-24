@@ -4,6 +4,7 @@ import xyz.xingfeng.fengNovel.config.ConfigReader;
 import xyz.xingfeng.fengNovel.exception.NullFileException;
 import xyz.xingfeng.fengNovel.game.Scene;
 import xyz.xingfeng.fengNovel.game.SceneManager;
+import xyz.xingfeng.fengNovel.util.ImageAdjustment;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,20 +19,30 @@ public class XMainComponent extends JComponent {
 
     private final XTextComponent xTextComponent;
     private final SceneManager sceneManager;
+    private final ConfigReader configReader;
+    private XBackgroundImage xBackgroundImage = new XBackgroundImage();
 
     public XMainComponent(Dimension d){
+        configReader = new ConfigReader("config.json");
+        //加载游戏资源
+        sceneManager = new SceneManager();
+        ImageIcon imageIcon = null;
+        try {
+            //加载演出和初始背景
+            sceneManager.loadScene(configReader.getJson("Game"));
+            imageIcon = new ImageIcon(configReader.getString("defaultBackground"));
+        } catch (NullFileException e) {
+            throw new RuntimeException(e);
+        }
         setOpaque(true);
         setBackground(Color.BLUE);
         setPreferredSize(d);
         xTextComponent = new XTextComponent(this);
-        add(xTextComponent);
-        //加载游戏资源
-        sceneManager = new SceneManager();
-        try {
-            sceneManager.loadScene(new ConfigReader("config.json").getJson("Game"));
-        } catch (NullFileException e) {
-            throw new RuntimeException(e);
-        }
+        xBackgroundImage = new XBackgroundImage(imageIcon);
+        add(xBackgroundImage);
+        add(xTextComponent,0);
+
+
         addMouseListener(new MouseListen());
 
     }
@@ -41,10 +52,8 @@ public class XMainComponent extends JComponent {
      * @param c 一般为父窗口的容器
      */
     public void dynamicSize(Component c){
-        System.out.println(c.getHeight());
         double aspectRatio = (double) c.getWidth() / (double) c.getHeight();
         Dimension newSize;
-
         if (aspectRatio > 16.0 / 9.0) {
             // 过宽，以高度为基准
             newSize = new Dimension(c.getHeight() * 16 / 9, c.getHeight());
@@ -54,9 +63,9 @@ public class XMainComponent extends JComponent {
             newSize = new Dimension(c.getWidth(), c.getWidth() * 9 / 16);
             setLocation(0, (c.getHeight() - newSize.height) / 2); // 垂直居中
         }
-
         setSize(newSize);
         xTextComponent.dynamicSize(this);
+        xBackgroundImage.dynamicSize(this);
         revalidate(); // 重新验证布局
         repaint(); // 重绘
     }

@@ -10,5 +10,6 @@
   "zoomEnabled": true,
   "Game": {
     "path": "assets/scene/Scene.json"
-  }
+  },
+  "defaultBackground": "assets/background/default.jpg"
 }

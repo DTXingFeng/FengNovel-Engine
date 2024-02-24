@@ -10,11 +10,16 @@ public class Scene {
      * 名字,默认为空，空则不显示
      */
     private String name = null;
+    private String backgroundPath="";
+    private JSONObject visuals = new JSONObject();
 
     public Scene(JSONObject scene) {
         this.sceneId = scene.getInt("sceneId");
         this.text = scene.getString("text");
         this.name = scene.getString("name");
+        visuals = scene.getJSONObject("visuals");
+        this.backgroundPath = visuals.getString("backgroundImage");
+
     }
 
     public Scene(){
@@ -45,5 +50,9 @@ public class Scene {
 
     public String getName() {
         return name;
+    }
+
+    public String getBackgroundPath() {
+        return backgroundPath;
     }
 }
