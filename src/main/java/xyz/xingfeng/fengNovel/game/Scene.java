@@ -1,10 +1,6 @@
 package xyz.xingfeng.fengNovel.game;
 
 import org.json.JSONObject;
-import xyz.xingfeng.fengNovel.entities.GameObject;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Scene {
 
