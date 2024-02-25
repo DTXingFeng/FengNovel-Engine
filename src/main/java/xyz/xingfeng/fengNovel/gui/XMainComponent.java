@@ -34,17 +34,14 @@ public class XMainComponent extends JComponent {
         } catch (NullFileException e) {
             throw new RuntimeException(e);
         }
-        setOpaque(true);
-        setBackground(Color.BLUE);
+//        setOpaque(true);
+//        setBackground(Color.BLUE);
         setPreferredSize(d);
         xTextComponent = new XTextComponent(this);
         xBackgroundImage = new XBackgroundImage(imageIcon);
         add(xBackgroundImage);
         add(xTextComponent,0);
-
-
         addMouseListener(new MouseListen());
-
     }
 
     /**
@@ -64,10 +61,21 @@ public class XMainComponent extends JComponent {
             setLocation(0, (c.getHeight() - newSize.height) / 2); // 垂直居中
         }
         setSize(newSize);
-        xTextComponent.dynamicSize(this);
-        xBackgroundImage.dynamicSize(this);
+
+        new Thread(new dynamicSizeAll(this)).start();
         revalidate(); // 重新验证布局
         repaint(); // 重绘
+    }
+    class dynamicSizeAll implements Runnable{
+        Component c;
+        public dynamicSizeAll(Component c){
+            this.c = c;
+        }
+        @Override
+        public void run() {
+            xTextComponent.dynamicSize(c);
+            xBackgroundImage.dynamicSize(c);
+        }
     }
 
     @Override
